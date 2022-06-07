@@ -35,6 +35,8 @@ class OBJ_DETECTION():
                     if 'Leo' in self.classes:
                         label = self.classes[int(p[5])]
                     else:
+                        if int(p[5]) == 0:
+                            continue
                         label = self.classes[int(p[5]) - 1]
                 except:
                     continue
