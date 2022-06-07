@@ -5,7 +5,6 @@ void setup()
 {
      //initialize button_pin as an input
      pinMode(BUTTON_PIN, INPUT_PULLUP);
-     Serial.begin(9600); 
      setupCommunication();
      sending = true;
 }
