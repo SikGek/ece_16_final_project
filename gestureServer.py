@@ -15,6 +15,7 @@ while True:
     try:
         #Recover message from client
         message = connectionSocket.recv(1024)
+        message = message.decode()
         print("Received message: " + message)
     except IOError:
         connectionSocket.close()
