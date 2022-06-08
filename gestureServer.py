@@ -3,8 +3,10 @@ from socket import *
 #Prepare a server socket
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverPort = 9879
+serverAddress = '127.0.0.1'
 
-serverSocket.bind(('', serverPort))
+serverSocket.bind((serverAddress, serverPort))
+serverSocket.listen(3)
 
 while True:
     #Establish the connection
