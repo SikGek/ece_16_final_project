@@ -3,22 +3,15 @@ import numpy as np
 from elements.yolo import OBJ_DETECTION
 from ECE16Lib.Communication import Communication
 from time import time
+from socket import create_connection, AF_INET, SOCK_STREAM
 import socket
 import pygame
 
-'''host = "127.0.0.1"
-port = 65432
-mySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-mySocket.connect((host, port))
-mySocket.setblocking(False)  
-try:
-    data = mySocket.recv(1024)
-    data = data.decode("utf-8")
-    print("Response: " + data)
-except BlockingIOError:
-    pass # do nothing if there's no data
-mySocket.send(["detected hand gesture"].encode("utf-8"))
-mySocket.close()'''
+targetHost = '127.0.0.1'
+targetPort = 9879
+
+clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+clientSocket.connect((targetHost, int(targetPort)))
 
 if __name__ == "__main__":
     Object_colors = list(np.random.rand(80,3)*255)
@@ -89,6 +82,8 @@ if __name__ == "__main__":
                     try:
                         if label in gests:
                             print(label + "detected, performing appropriate action.")
+                            mqttResponse = 'Gesture Detected'
+                            clientSocket.send(mqttResponse.encode())
                             break
                     except:
                         pass
