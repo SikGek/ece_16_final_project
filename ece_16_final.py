@@ -19,7 +19,7 @@ if __name__ == "__main__":
     faces = ['Leo']
     gests = ['thumbs up']
 
-    comms = Communication('COM3', 115200)
+    comms = Communication('/dev/COM4', 115200)
     comms.clear()                   # just in case any junk is in the pipes
     comms.send_message("wearable")
     cap = cv2.VideoCapture(0)
