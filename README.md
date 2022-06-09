@@ -33,6 +33,8 @@ The only instructions needed for outside what is default on the controller is co
 
 ### Design Project:
 
+![diagram](diagram.jpg)
+
 For our design project, we created a prototype of a home-alarm system that uses facial recognition and hand gestures to send MQTT commands to a home assistant server.  The overall flow for the project is that a button on the ESP32 is pressed to turn on the camera and facial recognition.  If the camera detects an approved face it will wait for a certain hand gesture.  In our example it waits for a thumbs up, which prompts the system to send the command to the server where action is taken on the command. 
 
 This project was inspired by Will's family.  His Uncles, Grandpa and parents all use the home assistant software to run their smart home and security functions.  Our project looks to make the issuing of commands a hands free experience, currently a phone app or keypad is used to issue commands.  Being able to just use hand gestures would streamline the command process. Ideally this could be used by any one using the open source home assistant OS. 
